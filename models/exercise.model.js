@@ -3,14 +3,13 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const exerciseSchema = new Schema({
-    description: {type: String,required: true},
-    username: {type: String, required: true},
-    duration: {type: Number, required: true},
-    date: {type: Date, required: true},
+    name: {type: String,required: true},
+    creator: {type: String, required: true},
+    metabolicEquivalent: {type: Number, required: true},
 }, {
     timestamps: true,
 });
 
-const Exercise = mongoose.model('Exercise', exerciseSchema);
+const ExerciseEntry = mongoose.model('ExerciseEntry', exerciseSchema);
 
-module.exports = Exercise;
+module.exports = ExerciseEntry;
