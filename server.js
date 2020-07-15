@@ -1,6 +1,10 @@
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
+const passport = require("passport");
+
 require('dotenv').config();
 
 const uri = process.env.ATLAS_URI;
@@ -15,6 +19,10 @@ const connection = mongoose.connection;
 connection.once('open', () => {
     console.log('MongoDB database connection established successfully');
 })
+
+// Passport middleware & config
+app.use(passport.initialize());
+require("./config/passport")(passport);
 
 const exercisesEntriesRouter = require('./routes/exercise-entries');
 const usersRouter = require('./routes/users');

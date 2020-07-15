@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-import isEmail from 'validator/lib/isEmail';
+const Validator = require("validator");
 
 const Schema = mongoose.Schema;
 
@@ -11,10 +11,13 @@ const userSchema = new Schema({
         trim: true,
         minlength: 3
     },
-    birthDate: {type: Date, required: true},
-    height: {type: Number, required: true},
-    sex: {type: String, required: true},
-    email: {type: String, required: true, unique: true, validate: [isEmail, 'Please use a valid email address']}
+    role: {type: String, default: 'free'},
+    birthdate: {type: Date, required: true},
+    height: {type: Number, required: true, minlength: 3},
+    weight: {type: Number, required: true, minlength: 3},
+    sex: {type: String, required: true, minlength: 4},
+    password: {type: String, required: true, minlength: 6},
+    email: {type: String, required: true, unique: true, validate: [Validator.isEmail, 'Please use a valid email address']}
 }, {
     timestamps: true,
 });
