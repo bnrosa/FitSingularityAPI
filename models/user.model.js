@@ -16,6 +16,7 @@ const userSchema = new Schema({
     height: {type: Number, required: true, minlength: 3},
     weight: {type: Number, required: true, minlength: 3},
     sex: {type: String, required: true, minlength: 4},
+    calorieIntake: {type: Number, required: true, default: -500},
     password: {type: String, required: true, minlength: 6},
     email: {type: String, required: true, unique: true, validate: [Validator.isEmail, 'Please use a valid email address']}
 }, {
