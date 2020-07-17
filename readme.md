@@ -22,4 +22,4 @@ Right now you can register and add exercises-entries.
 - graphql and express-graphql for graphql routing
 - bcryptjs for password encryptation
 - cors for enabling cross origin requests for localhost manual testing
-- jest for automated unit testing
+- mocha for automated unit testing
